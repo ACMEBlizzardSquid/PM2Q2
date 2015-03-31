@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://service.xml.soen487/schema/" xmlns:tns="http://service.xml.soen487/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0" targetNamespace="http://service.xml.soen487/" xmlns:tns="http://service.xml.soen487/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="IOException" type="tns:IOException"/>
+  <xs:element name="IOException" nillable="true" type="tns:ioExceptionBean"/>
 
-  <xs:element name="ParserConfigurationException" type="tns:ParserConfigurationException"/>
+  <xs:element name="ParserConfigurationException" nillable="true" type="tns:parserConfigurationExceptionBean"/>
 
-  <xs:element name="SAXException" type="tns:SAXException"/>
+  <xs:element name="SAXException" nillable="true" type="tns:saxExceptionBean"/>
 
-  <xs:element name="getType" type="tns:getType"/>
+  <xs:element name="getType" nillable="true" type="tns:getType"/>
 
-  <xs:element name="getTypeResponse" type="tns:getTypeResponse"/>
+  <xs:element name="getTypeResponse" nillable="true" type="tns:getTypeResponse"/>
 
-  <xs:element name="readFromUrl" type="tns:readFromUrl"/>
+  <xs:element name="readFromUrl" nillable="true" type="tns:readFromUrl"/>
 
-  <xs:element name="readFromUrlResponse" type="tns:readFromUrlResponse"/>
+  <xs:element name="readFromUrlResponse" nillable="true" type="tns:readFromUrlResponse"/>
 
   <xs:complexType name="getType">
     <xs:sequence>
@@ -27,13 +27,13 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ParserConfigurationException">
+  <xs:complexType name="parserConfigurationExceptionBean">
     <xs:sequence>
       <xs:element name="message" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="SAXException">
+  <xs:complexType name="saxExceptionBean">
     <xs:sequence>
       <xs:element name="exception" type="tns:exception" minOccurs="0"/>
       <xs:element name="message" type="xs:string" minOccurs="0"/>
@@ -58,7 +58,7 @@
     <xs:sequence/>
   </xs:complexType>
 
-  <xs:complexType name="IOException">
+  <xs:complexType name="ioExceptionBean">
     <xs:sequence>
       <xs:element name="message" type="xs:string" minOccurs="0"/>
     </xs:sequence>
