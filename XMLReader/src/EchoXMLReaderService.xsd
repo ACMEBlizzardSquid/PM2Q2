@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.xml.soen487/schema/" xmlns:tns="http://service.xml.soen487/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="IOException" type="tns:IOException"/>
+
+  <xs:element name="ParserConfigurationException" type="tns:ParserConfigurationException"/>
+
+  <xs:element name="SAXException" type="tns:SAXException"/>
+
+  <xs:element name="getType" type="tns:getType"/>
+
+  <xs:element name="getTypeResponse" type="tns:getTypeResponse"/>
+
+  <xs:element name="readFromUrl" type="tns:readFromUrl"/>
+
+  <xs:element name="readFromUrlResponse" type="tns:readFromUrlResponse"/>
+
+  <xs:complexType name="getType">
+    <xs:sequence>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParserConfigurationException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SAXException">
+    <xs:sequence>
+      <xs:element name="exception" type="tns:exception" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exception">
+    <xs:complexContent>
+      <xs:extension base="tns:throwable">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="throwable">
+    <xs:sequence>
+      <xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stackTraceElement" final="extension restriction">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="readFromUrl">
+    <xs:sequence>
+      <xs:element name="url" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="readFromUrlResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

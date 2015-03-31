@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>gnaarzz</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            li {
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>WSCAT Milestone 1</h1>
+        By
+        <ul>
+            <li>Connor Bode</li>
+            <li>Simon Larocque</li>
+            <li>Rodrigo Coniglione</li>
+        </ul>
+        
+        <h2>Links</h2>
+        <ul>
+            <li><a href="#question-1">Question 1</a></li>
+            <li><a href="#question-2">Question 2</a></li>
+            <li><a href="#question-3">Question 3</a></li>
+        </ul>
+
+        <h2>Service Descriptions</h2>
+
+        A description of all web services is available <a href="EchoXMLReaderService">here</a>.
+        
+        <h2 id="question-1">Question 1</h2>
+        
+        <ol>
+            <li>
+                <b>Print out all title elements from http://www.ledevoir.com/rss/edition_complete.xml</b><br />
+                Run the Java class soen487.pm1.RSS
+            </li>
+            <li>
+                <b>Print out all elements and attributes from http://marf.cvs.sf.net/viewvc/marf/apps/TestNN/samples/test1.xml?revision=1.1</b><br />
+                This can be achieved by executing the Java class soen487.pm1.NN
+            </li>
+            <li>
+                <b>Print out all elements and attributes from http://users.encs.concordia.ca/~s487_4/project/marfcat-in.xml</b><br />
+                This can be achieved by executing the Java class `soen487.pm1.MARFCAT_IN`
+            </li>
+            <li>
+                <b>Print out all elements and attributes from http://users.encs.concordia.ca/~s487_4/project/marfcat-out.xml</b><br />
+                This can be achieved by executing the Java class `soen487.pm1.MARFCAT_OUT`
+            </li>
+            <li>
+                <b>Print out all elements and attributes from http://users.encs.concordia.ca/~s487_4/examples/soap/faultmessage/faultSample.wsdl</b><br />
+                This can be achieved by executing the Java class `soen487.pm1.WSDL`
+            </li>
+        </ol>
+        
+        <h2 id="question-2">Question 2</h2>
+        
+        Question 2 is solved by a service called <b>EchoXMLReaderService</b>.  The service provides two methods: 
+
+        <ul>
+          <li><b>getType(String type)</b> will allow you to execute the methods from question 1 by providing one of the following types: "MARFCAT_IN", "MARFCAT_OUT", "RSS", "NN", "WSDL"</li>
+          <li><b>readFromUrl(String url)</b> expects the URL supplied to contain well formed XML.  It downloads the XML and prints it out in a nicely formatted manner.</li>
+        </ul>
+
+        The source for the service is available at <b>soen487.xml.service.EchoXMLReaderService</b>.
+
+        <h2 id="question-3">Question 3</h2>
+
+        Question 3 is solved by two services: <b>WSDLRetrieveService</b> and <b>WSCATService</b>.
+
+        <p>
+          WSDLRetrieveService provides a single method, <b>retrieveWSDLs(String pstrSeedURI, Integer piLimit)</b>.  If either of the parameters are omitted, the method applies default values.  The method visits the provided URI, scans for a number of WSDL links (up to piLimit) and saves the WSDL files locally.  The files are appended to a MARFCAT_IN file (which is created if it does not exist).  The list of paths to the local files is then returned.
+        </p>
+
+        <p>
+          <b>A default CVE tag was used</b>.  While the service documentation node is parsed from downloaded WSDLs, we found that appending any non-standard value to the &lt;cve&gt; node would cause Marfcat training to fail with "No subject(s) found in [file]".  The value used for the tag is <b>CVE-2009-2902</b>
+        </p>
+
+        <p>
+          WSCATService provides the following methods:
+        </p>
+
+        <ul>  
+          <li>
+            <p><b>submitWSDLToAnalyze(String file)</b>.  This method accepts a string representation of a WSDL (e.g. contained in a &lt;![CDATA[ ]]&gt; element).  The method does the following:</p>
+            <ol>
+              <li>Saves the file to disk</li>
+              <li>Generates a MARFCAT_IN which includes the file</li>
+              <li>Submits the MARFCAT_IN to Marfcat, receiving the location of a MARFCAT_OUT file</li>
+              <li>Reads the MARFCAT_OUT file into a string and returns it</li>
+            </ol>
+          </li>
+          <li>
+            <p><b>submitWSDLRepo(String uri)</b>.  This method does the following:</p>
+            <ol>
+              <li>Passes the URI to WSDLRetrieveService.retrieveWSDLs</li>
+              <li>Generates a MARFCAT_IN file which includes all the paths returned from WSDLRetrieveService</li>
+              <li>Reads the MARFCAT_IN file and returns the contents</li>
+            </ol>
+            <p>We are not entirely sure what the purpose of this method is.  The requirements and motives were a bit unclear.</p>
+          </li>
+          <li>
+            <p><b>trainOnUri</b>.  This method does the following:</p>
+            <ol>
+              <li>Downloads the contents of the URI (expecting well-formed XML)</li>
+              <li>Saves the contents to disk</li>
+              <li>Generates a MARFCAT_IN file referrencing the contents, with a generic CVE "CVE-2009-3548" (see our issues with non-generic CVE described above in WSDLRetrieveService)</li>
+              <li>Submits the MARFCAT_IN file to Marfcat for training</li>
+            </ol>
+          </li>
+          <li>
+            <p><b>trainOnWSDL</b>. This method accepts a string representation of a WSDL (e.g. contained in a &lt;![CDATA[ ]]&gt; element).  The method does the following:</p>
+            <ol>
+              <li>Saves the file to disk</li>
+              <li>Follows the same steps as trainOnUri</li>
+            </ol>
+          </li>
+        </ul>
+        <p>The sources for these files are located in <b>soen487.retriever.services.WSDLRetrieveService</b> and <b>soen487.wscat.services.WSCATService</b>
+
+        <p>A client for each of the services has been written: <b>soen487.retriever.services.client.*</b> and <b>soen487.wscat.services.client.*</b> are the two clients.  Further, there are two POJO test files demonstrating the use of the clients: <b>soen487.retriever.services.client.WSDLRetrieveServiceTest</b> and <b>soen487.wscat.services.client.WSCATServiceTestClient</b></p>
+
+    </body>
+</html>
