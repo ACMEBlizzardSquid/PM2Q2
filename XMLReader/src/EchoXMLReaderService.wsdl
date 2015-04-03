@@ -84,7 +84,8 @@
   </binding>
   <service name="EchoXMLReaderService">
     <port name="EchoXMLReaderPort" binding="tns:EchoXMLReaderPortBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <!-- This must be replaced with the actual location -->
+      <soap:address location="http://localhost:9090/PM3Q2/EchoXMLReaderService"/>
     </port>
   </service>
 </definitions>
