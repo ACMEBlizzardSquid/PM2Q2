@@ -84,7 +84,8 @@
   </binding>
   <service name="EchoXMLReaderService">
     <port name="EchoXMLReaderPort" binding="tns:EchoXMLReaderPortBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+        <!-- REPLACE address for address of glassfish instance where service is deployed -->
+      <soap:address location="http://localhost:22698/EchoXMLReader/EchoXMLReaderService"/>
     </port>
   </service>
 </definitions>

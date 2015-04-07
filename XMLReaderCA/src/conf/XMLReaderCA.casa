@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="XMLReaderCA" xmlns:ns2="http://j2ee.netbeans.org/wsdl/XMLReader/src/XmlReader" xmlns:ns3="http://enterprise.netbeans.org/bpel/XMLReader/XMLReader" xmlns:ns4="http://service.xml.soen487/" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="XMLReaderCA" xmlns:ns2="http://j2ee.netbeans.org/wsdl/XMLReader/src/XmlReader" xmlns:ns3="http://service.xml.soen487/" xmlns:ns4="http://enterprise.netbeans.org/bpel/XMLReader/XMLReader" xmlns:xlink="http://www.w3.org/2000/xlink">
     <endpoints>
         <endpoint endpoint-name="casaPort1" interface-name="ns2:XmlReaderPortType" name="endpoint1" service-name="ns1:XMLReaderCAService1"/>
-        <endpoint display-name="PartnerLink3" endpoint-name="XmlReaderPortTypeRole_myRole" file-path="XMLReader.bpel" interface-name="ns2:XmlReaderPortType" name="endpoint2" process-name="XMLReader" service-name="ns3:PartnerLink3"/>
-        <endpoint display-name="PartnerLink2" endpoint-name="EchoXMLReaderRole_partnerRole" file-path="XMLReader.bpel" interface-name="ns4:EchoXMLReader" name="endpoint3" process-name="XMLReader" service-name="ns3:PartnerLink2"/>
+        <endpoint endpoint-name="EchoXMLReaderPort" interface-name="ns3:EchoXMLReader" name="endpoint2" service-name="ns3:EchoXMLReaderService"/>
+        <endpoint display-name="PartnerLink3" endpoint-name="XmlReaderPortTypeRole_myRole" file-path="XMLReader.bpel" interface-name="ns2:XmlReaderPortType" name="endpoint3" process-name="XMLReader" service-name="ns4:PartnerLink3"/>
+        <endpoint display-name="PartnerLink2" endpoint-name="EchoXMLReaderRole_partnerRole" file-path="XMLReader.bpel" interface-name="ns3:EchoXMLReader" name="endpoint4" process-name="XMLReader" service-name="ns4:PartnerLink2"/>
     </endpoints>
     <service-units>
-        <service-engine-service-unit artifacts-zip="XMLReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="XMLReaderCA-XMLReader" unit-name="XMLReader" unknown="false" x="150" y="99">
-            <provides endpoint="endpoint2"/>
-            <consumes endpoint="endpoint3"/>
+        <service-engine-service-unit artifacts-zip="XMLReader.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="XMLReaderCA-XMLReader" unit-name="XMLReader" unknown="false" x="158" y="99">
+            <provides endpoint="endpoint3"/>
+            <consumes endpoint="endpoint4"/>
         </service-engine-service-unit>
         <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="XMLReaderCA-sun-http-binding" unit-name="sun-http-binding">
             <ports>
@@ -17,11 +18,17 @@
                     <consumes endpoint="endpoint1"/>
                     <provides endpoint="endpoint1"/>
                 </port>
+                <port x="67" y="39">
+                    <link xlink:href="../jbiServiceUnits/XMLReader/EchoXMLReaderService.wsdl#xpointer(/definitions/service[@name='EchoXMLReaderService']/port[@name='EchoXMLReaderPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
+                </port>
             </ports>
         </binding-component-service-unit>
     </service-units>
     <connections>
-        <connection consumer="endpoint1" provider="endpoint2" state="new"/>
+        <connection consumer="endpoint4" provider="endpoint2" state="unchanged"/>
+        <connection consumer="endpoint1" provider="endpoint3" state="new"/>
     </connections>
     <porttypes>
         <link xlink:href="../jbiasa/XMLReaderCA.wsdl#xpointer(/definitions/portType[@name='dummyCasaPortType'])" xlink:type="simple"/>
