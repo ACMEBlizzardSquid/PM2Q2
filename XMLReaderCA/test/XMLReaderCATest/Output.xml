@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:XmlReaderOperationResponse xmlns:m="XMLReaderCA">
+      <part1 xmlns:msgns="http://j2ee.netbeans.org/wsdl/XMLReader/src/XmlReader" xmlns:ns2="http://service.xml.soen487/">xs:schema
+  
+   
+  
+  xs:complexType
+    
+    
+    xs:sequence
+      
+      
+      xs:any
+      
+    
+    
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:annotation
+      
+      
+      xs:documentation
+        
+      This type is extended by  component types to allow them to be documented
+      
+      
+    
+    
+    
+    xs:sequence
+      
+      
+      xs:element
+      
+    
+    
+  
+  
+	 
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:annotation
+          
+          
+          xs:documentation
+            
+          This type is extended by component types to allow attributes from other namespaces to be added.
+          
+          
+        
+        
+        
+        xs:anyAttribute
+            
+      
+      
+    
+    
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:annotation
+          
+          
+          xs:documentation
+            
+          This type is extended by component types to allow elements from other namespaces to be added.
+          
+          
+        
+        
+        
+        xs:sequence
+          
+          
+          xs:any
+          
+        
+        
+      
+      
+    
+    
+  
+  
+
+  
+  xs:element
+    
+    
+    xs:key
+      
+      
+      xs:selector
+      
+      
+      xs:field
+      
+    
+    
+    
+    xs:key
+      
+      
+      xs:selector
+      
+      
+      xs:field
+      
+    
+    
+    
+    xs:key
+      
+      
+      xs:selector
+      
+      
+      xs:field
+      
+    
+    
+    
+    xs:key
+      
+      
+      xs:selector
+      
+      
+      xs:field
+      
+    
+    
+    
+    xs:key
+      
+      
+      xs:selector
+      
+      
+      xs:field
+      
+    
+    
+  
+  
+
+  
+  xs:group
+    
+    
+    xs:annotation
+      
+      
+      xs:documentation
+        
+      Any top level optional element allowed to appear more then once - any child of definitions element except wsdl:types. Any extensibility element is allowed in any place.
+      
+      
+    
+    
+    
+    xs:choice
+      
+      
+      xs:element
+      
+      
+      xs:element
+                           
+      
+      xs:element
+        
+        
+        xs:unique
+          
+          
+          xs:selector
+          
+          
+          xs:field
+          
+        
+        
+      
+      
+      
+      xs:element
+      
+      
+      xs:element
+      
+      
+      xs:element
+        
+        
+        xs:unique
+          
+          
+          xs:selector
+          
+          
+          xs:field
+          
+        
+        
+	  
+      
+    
+    
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:group
+          
+        
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+   
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+   
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+         
+      
+      xs:extension
+      
+    
+       
+  
+  
+     
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+         
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:element
+          
+        
+        
+        
+        xs:attribute
+        
+      
+      
+    
+       
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+         
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+            
+      
+      
+    
+       
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+         
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:element
+          
+        
+        
+        
+        xs:attribute
+        
+      
+      
+    
+       
+  
+  
+   
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+         
+      
+      xs:extension
+        
+	    
+        xs:sequence
+          
+          
+          xs:choice
+            
+            
+            xs:group
+            
+            
+            xs:group
+            
+          
+          
+        
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+       
+  
+  
+    
+  
+  xs:group
+    
+    
+    xs:sequence
+      
+      
+      xs:element
+      
+	  
+      xs:sequence
+        
+	    
+        xs:element
+        
+		
+        xs:element
+        
+      
+      
+    
+    
+  
+  
+
+  
+  xs:group
+    
+    
+    xs:sequence
+      
+      
+      xs:element
+      
+	  
+      xs:sequence
+        
+	    
+        xs:element
+        
+		
+        xs:element
+        
+	  
+      
+    
+    
+  
+  
+        
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+     
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:element
+          
+        
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+    
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+  
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:element
+          
+          
+          xs:element
+          
+          
+          xs:element
+          
+        
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+     
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:sequence
+          
+          
+          xs:element
+          
+        
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+     
+  
+  xs:complexType
+    
+    
+    xs:complexContent
+      
+      
+      xs:extension
+        
+        
+        xs:attribute
+        
+        
+        xs:attribute
+        
+      
+      
+    
+    
+  
+  
+
+  
+  xs:attribute
+  
+  
+  xs:attribute
+  
+  
+  xs:complexType
+    
+    
+    xs:attribute
+    
+  
+  
+
+
+</part1>
+    </m:XmlReaderOperationResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
